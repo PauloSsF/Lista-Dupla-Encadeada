@@ -6,7 +6,6 @@ typedef struct no{
     struct no *anterior;
 }No;
 
-// procedimento para inserir no início
 void inserir_no_inicio(No **lista, int num){
     No *novo = malloc(sizeof(No));
 
@@ -22,7 +21,6 @@ void inserir_no_inicio(No **lista, int num){
         printf("Erro ao alocar memoria!\n");
 }
 
-// procedimento para inserir no fim
 void inserir_no_fim(No **lista, int num){
     No *aux, *novo = malloc(sizeof(No));
 
@@ -30,7 +28,7 @@ void inserir_no_fim(No **lista, int num){
         novo->valor = num;
         novo->proximo = NULL;
 
-        // é o primeiro?
+        
         if(*lista == NULL){
             *lista = novo;
             novo->anterior = NULL;
@@ -47,13 +45,13 @@ void inserir_no_fim(No **lista, int num){
         printf("Erro ao alocar memoria!\n");
 }
 
-// procedimento para inserir no meio
+
 void inserir_no_meio(No **lista, int num, int ant){
     No *aux, *novo = malloc(sizeof(No));
 
     if(novo){
         novo->valor = num;
-        // é o primeiro?
+        
         if(*lista == NULL){
             novo->proximo = NULL;
             novo->anterior = NULL;
@@ -79,12 +77,12 @@ void inserir_ordenado(No **lista, int num){
 
     if(novo){
         novo->valor = num;
-        // a lista está vazia?
+        
         if(*lista == NULL){
             novo->proximo = NULL;
             novo->anterior = NULL;
             *lista = novo;
-        } // é o menor?
+        } 
         else if(novo->valor < (*lista)->valor){
             novo->proximo = *lista;
             (*lista)->anterior = novo;
@@ -150,7 +148,7 @@ void imprimir(No *no){
     printf("\n\n");
 }
 
-// retorna ponteiro para o último nó da lista
+
 No* ultimo(No **lista){
     No *aux = *lista;
     while(aux->proximo)
@@ -158,8 +156,7 @@ No* ultimo(No **lista){
     return aux;
 }
 
-// imprime a lista do fim para o início
-// recebe um ponteiro para o último nó da lista
+
 void imprimirContrario(No *no){
     printf("\n\tLista: ");
     while(no){
